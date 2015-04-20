@@ -76,3 +76,6 @@ data <- cbind(rbind(subject_train,subject_test),data)
 temp <- sub("V1","subject",names(data))
 names(data) <- temp
 
+##Create table by activity and subject for second part of assignment
+data2 = data2 %>% group_by(subject,activity) %>% 
+  summarise_each(funs(mean))
